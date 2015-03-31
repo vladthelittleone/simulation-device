@@ -28,12 +28,12 @@ function Update()
     // Careful: For Mac users, ctrl + arrow is a bad idea
     if (shoot)
     {
-      var weapon : WeaponScript = GetComponent(WeaponScript);
-      if (weapon != null)
-      {
-        // false because the player is not an enemy
-        weapon.Attack(false);
-      }
+		var weapon : WeaponScript = GetComponent(WeaponScript);
+		if (weapon != null)
+		{
+			// false because the player is not an enemy
+			weapon.Attack(false);
+		}
     }
 }
 
@@ -41,4 +41,28 @@ function FixedUpdate()
 {
     // 5 - Move the game object
     GetComponent(Rigidbody2D).velocity = movement;
+}
+
+function OnCollisionEnter2D(collision : Collision2D)
+{
+	var damagePlayer : boolean = false;
+
+	// Collision with enemy
+	var enemy : EnemyScript = collision.gameObject.GetComponent.<EnemyScript>();
+	
+	if (enemy != null)
+	{
+	  // Kill the enemy
+	  var enemyHealth : HealthScript = enemy.GetComponent.<HealthScript>();
+	  if (enemyHealth != null) enemyHealth.Damage(enemyHealth.hp);
+
+	  damagePlayer = true;
+	}
+
+	// Damage the player
+	if (damagePlayer)
+	{
+	  var playerHealth : HealthScript = this.GetComponent.<HealthScript>();
+	  if (playerHealth != null) playerHealth.Damage(1);
+	}
 }
