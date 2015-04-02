@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &103338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 489644}
+  - 114: {fileID: 11401746}
+  m_Layer: 0
+  m_Name: Weapon 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &137550
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +26,7 @@ GameObject:
   - 4: {fileID: 446966}
   - 114: {fileID: 11445900}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Weapon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,12 +59,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137550}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
+  m_LocalRotation: {x: 0, y: 0, z: .923879445, w: -.382683635}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 471326}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &471326
 Transform:
   m_ObjectHideFlags: 1
@@ -59,8 +75,21 @@ Transform:
   m_LocalPosition: {x: 5.86000013, y: -.670000017, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children:
+  - {fileID: 489644}
   - {fileID: 446966}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &489644
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103338}
+  m_LocalRotation: {x: 0, y: 0, z: .923879564, w: .382683307}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 471326}
   m_RootOrder: 0
 --- !u!50 &5076392
 Rigidbody2D:
@@ -90,6 +119,19 @@ BoxCollider2D:
   m_Offset: {x: .163725615, y: -.196470618}
   serializedVersion: 2
   m_Size: {x: 4.83215809, y: 3.48509645}
+--- !u!114 &11401746
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2aa5715bc264092bd55b716f9dfa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotPrefab: {fileID: 438542, guid: e37c81104947e4858a43bc6d5add37b9, type: 2}
+  shootingRate: .75
 --- !u!114 &11404992
 MonoBehaviour:
   m_ObjectHideFlags: 1
