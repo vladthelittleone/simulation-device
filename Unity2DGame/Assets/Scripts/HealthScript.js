@@ -27,6 +27,8 @@ function Damage (damageCount : int)
       // 'Splosion!
       SpecialEffectsHelper.Instance.Explosion(transform.position);
       
+      SoundEffectsHelper.Instance.MakeExplosionSound();
+      
 	  // Dead!
 	  Destroy(gameObject);
 	}
