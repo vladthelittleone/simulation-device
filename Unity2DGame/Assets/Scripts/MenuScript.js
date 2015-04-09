@@ -4,25 +4,32 @@
 /// Title screen script
 /// </summary>
 
+private var skin : GUISkin;
+
+function Start()
+{
+	// Load a skin for the buttons
+	skin = Resources.Load("GUISkin") as GUISkin;
+}
+
 function OnGUI()
 {
-	var buttonWidth : int = 84;
+	var buttonWidth : int = 128;
 	var buttonHeight : int = 60;
 
-	// Determine the button's place on screen
-	// Center in X, 2/3 of the height in Y
-	var buttonRect : Rect = Rect(
-	      Screen.width / 2 - (buttonWidth / 2),
-	      (2 * Screen.height / 3) - (buttonHeight / 2),
-	      buttonWidth,
-	      buttonHeight
-	    );
+	// Set the skin to use
+	GUI.skin = skin;
 
 	// Draw a button to start the game
-	if(GUI.Button(buttonRect,"Start!"))
+	if (GUI.Button(
+	  // Center in X, 2/3 of the height in Y
+	  new Rect(Screen.width / 2 - (buttonWidth / 2), 
+	  (2 * Screen.height / 3) - (buttonHeight / 2), 
+	  buttonWidth, buttonHeight),
+	  "START"
+	  ))
 	{
 	  // On Click, load the first level.
-	  // "Stage1" is the name of the first scene we created.
-	  Application.LoadLevel("GameScene");
+	  Application.LoadLevel("GameScene"); // "Stage1" is the scene name
 	}
 }
