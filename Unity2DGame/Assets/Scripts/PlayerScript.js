@@ -70,6 +70,14 @@ function FixedUpdate()
     );
 }
 
+function OnDestroy()
+{
+  // Game Over.
+  // Add the script to the parent because the current game
+  // object is likely going to be destroyed immediately.
+  transform.parent.gameObject.AddComponent(GameOverScript);
+}
+
 function OnCollisionEnter2D(collision : Collision2D)
 {
 	var damagePlayer : boolean = false;
